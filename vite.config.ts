@@ -2,14 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-// For GitHub Pages:
-// In GitHub Actions, GITHUB_REPOSITORY is usually "username/repository-name".
-// This automatically sets the correct base path: "/repository-name/".
-// Locally, the base remains "/".
-const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
-const base = repositoryName ? `/${repositoryName}/` : "/";
-
+// GitHub Pages serves project sites from a repository subpath, while local
+// preview serves from the domain root. Relative asset URLs work in both places
+// and prevent the production build from requesting /assets/* from the domain
+// root, which causes a blank page on project pages.
 export default defineConfig({
-  base,
+  base: "./",
   plugins: [react(), tailwindcss()],
 });
