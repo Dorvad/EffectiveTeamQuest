@@ -7,8 +7,8 @@
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  color-scheme: dark;
-  background: #020617;
+  color-scheme: light;
+  background: #f8fafc;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -28,6 +28,18 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  overscroll-behavior-y: none;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  pointer-events: none;
+  content: "";
+  background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
 }
 
 button,
@@ -39,6 +51,14 @@ select {
 
 button {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(20, 184, 166, 0.75);
+  outline-offset: 3px;
 }
 
 ::selection {
