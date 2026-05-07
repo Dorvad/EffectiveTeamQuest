@@ -1,6 +1,5 @@
 import { Award, Target } from "lucide-react";
 import type { QuestionnaireResult } from "../types/questionnaire";
-import { Card } from "./ui/Card";
 import { Pill } from "./ui/Pill";
 
 type ResultsSummaryCardProps = {
@@ -13,9 +12,9 @@ function titles(categories: QuestionnaireResult["strengths"]) {
 
 export function ResultsSummaryCard({ result }: ResultsSummaryCardProps) {
   return (
-    <Card elevated className="space-y-5 bg-slate-950 p-6 text-white">
+    <div className="space-y-5 rounded-[1.75rem] border border-slate-800 bg-slate-950 p-6 text-white shadow-2xl shadow-slate-200/80">
       <div>
-        <Pill tone="teal" className="border-white/10 bg-white/10 text-teal-100">
+        <Pill tone="teal" className="!border-white/10 !bg-white/10 !text-teal-100">
           ציון כולל {result.totalScore}/{result.maxTotalScore}
         </Pill>
         <h2 className="mt-4 text-3xl font-black">תמונת מצב צוותית</h2>
@@ -36,6 +35,6 @@ export function ResultsSummaryCard({ result }: ResultsSummaryCardProps) {
           <p className="mt-1 text-xl font-black">{titles(result.opportunities)}</p>
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
