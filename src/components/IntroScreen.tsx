@@ -64,9 +64,13 @@ export function IntroScreen({ onStart }: IntroScreenProps) {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-3 flex justify-between text-sm text-slate-300">
-                    <span>לא מסכים</span>
-                    <span>מסכים בהחלט</span>
+                  <div className="mt-3 grid grid-cols-5 gap-2 text-sm text-slate-300" dir="ltr">
+                    <span className="col-span-2 justify-self-start text-left" dir="rtl">
+                      1 = לא מסכים בכלל
+                    </span>
+                    <span className="col-span-2 col-start-4 justify-self-end text-right" dir="rtl">
+                      5 = מסכים בהחלט
+                    </span>
                   </div>
                 </div>
 

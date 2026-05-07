@@ -9,7 +9,7 @@ type ScaleSelectorProps = {
 
 export function ScaleSelector({ value, onChange }: ScaleSelectorProps) {
   return (
-    <div className="space-y-4" role="radiogroup" aria-label="סולם הסכמה מ-1 עד 5">
+    <div className="space-y-4" role="radiogroup" aria-label="סולם הסכמה: 1 לא מסכים בכלל, 5 מסכים בהחלט">
       <div className="grid grid-cols-5 gap-2" dir="ltr">
         {values.map((scaleValue) => {
           const isSelected = value === scaleValue;
@@ -33,9 +33,13 @@ export function ScaleSelector({ value, onChange }: ScaleSelectorProps) {
         })}
       </div>
 
-      <div className="flex items-center justify-between gap-3 text-sm font-semibold text-slate-500">
-        <span>לא מסכים</span>
-        <span>מסכים בהחלט</span>
+      <div className="grid grid-cols-5 gap-2 text-sm font-semibold text-slate-500" dir="ltr">
+        <span className="col-span-2 justify-self-start text-left" dir="rtl">
+          1 = לא מסכים בכלל
+        </span>
+        <span className="col-span-2 col-start-4 justify-self-end text-right" dir="rtl">
+          5 = מסכים בהחלט
+        </span>
       </div>
     </div>
   );
